@@ -9,7 +9,11 @@
                 <p style="font-weight: bold;">@include('partials.inform')</p>
 
                 <div class="input-row white-shadow-select">
-                    <label for="currency" class="input-row__name">{{ __('Currency') }}
+                    <label for="currency" class="input-row__name">@if(canEditLang() && checkRequestOnEdit())
+                        <editor_block data-name='Currency' contenteditable="true">{{ __('Currency') }}</editor_block>
+                      @else
+                        {{ __('Currency') }}
+                      @endif
                     </label>
                     <select class="select" id="currency_id" name="currency" autofocus>
                     @foreach(getPaymentSystems() as $paymentSystem)
@@ -20,19 +24,35 @@
                     </select>
                 </div>
                 <div class="input-row">
-                    <label for="amount" class="input-row__name">{{ __('Amount') }}
+                    <label for="amount" class="input-row__name">@if(canEditLang() && checkRequestOnEdit())
+                        <editor_block data-name='Amount' contenteditable="true">{{ __('Amount') }}</editor_block>
+                      @else
+                        {{ __('Amount') }}
+                      @endif
                     </label><input id="amount" name="amount" type="number" step="any" class="input-row__input input input--white-shadow" required/>
                     @if(getEnterCommission() > 0)
-                        <span class="help-block">{{ __('System commission') }} {{ getEnterCommission() }} %</span>
+                        <span class="help-block">@if(canEditLang() && checkRequestOnEdit())
+                            <editor_block data-name='System commission' contenteditable="true">{{ __('System commission') }}</editor_block>
+                          @else
+                            {{ __('System commission') }}
+                          @endif {{ getEnterCommission() }} %</span>
                     @endif
                 </div>
                 <div class="input-row">
-                    <label for="captcha" class="input-row__name">{{ __('Enter captcha code') }}
+                    <label for="captcha" class="input-row__name">@if(canEditLang() && checkRequestOnEdit())
+                        <editor_block data-name='Enter captcha code' contenteditable="true">{{ __('Enter captcha code') }}</editor_block>
+                      @else
+                        {{ __('Enter captcha code') }}
+                      @endif
                     </label><input id="captcha" name="captcha" class="input-row__input input input--white-shadow" type="text"/>
                     <div class="input-row__captcha"><?= captcha_img() ?>
                     </div>
                 </div>
-                <div class="form-lk__bottom"><button class="btn btn--accent2">{{ __('Process') }}</button>
+                <div class="form-lk__bottom"><button class="btn btn--accent2">@if(canEditLang() && checkRequestOnEdit())
+                      <editor_block data-name='Process' contenteditable="true">{{ __('Process') }}</editor_block>
+                    @else
+                      {{ __('Process') }}
+                    @endif</button>
                 </div>
             </form>
         </div>
