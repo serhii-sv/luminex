@@ -3,11 +3,23 @@
 @section('content')
 
 <section class="lk-section">
-    <h4 class="title">{{ __('Create a new deposit') }}</h4>
+    <h4 class="title">@if(canEditLang() && checkRequestOnEdit())
+        <editor_block data-name='Create a new deposit' contenteditable="true">{{ __('Create a new deposit') }}</editor_block>
+      @else
+        {{ __('Create a new deposit') }}
+      @endif</h4>
     <div class="plan-item plan-item--line">
         <div class="plan-item__left">
-            <p class="plan-item__name">0.77% {{ __('per day') }}</p>
-            <a class="btn btn--accent2" href="{{ route('profile.deposits.create') }}">{{ __('Create deposit') }}</a>
+            <p class="plan-item__name">0.77% @if(canEditLang() && checkRequestOnEdit())
+                <editor_block data-name='per day' contenteditable="true">{{ __('per day') }}</editor_block>
+              @else
+                {{ __('per day') }}
+              @endif</p>
+            <a class="btn btn--accent2" href="{{ route('profile.deposits.create') }}" @if(canEditLang() && checkRequestOnEdit()) onclick="event.preventDefault()" @endif>@if(canEditLang() && checkRequestOnEdit())
+                <editor_block data-name='Create deposit' contenteditable="true">{{ __('Create deposit') }}</editor_block>
+              @else
+                {{ __('Create deposit') }}
+              @endif</a>
         </div>
         <div class="plan-item__content">
             <ul class="information-icons">
@@ -15,15 +27,27 @@
                     <div class="information-icons__icon"><img src="/img/icons/icon-calendar.svg" alt="">
                     </div>
                     <div class="information-icons__content">
-                        <p class="information-icons__title">{{ __('Plan duration') }}</p>
-                        <p class="information-icons__name">{{ __('100 days') }}</p>
+                        <p class="information-icons__title">@if(canEditLang() && checkRequestOnEdit())
+                            <editor_block data-name='Plan duration' contenteditable="true">{{ __('Plan duration') }}</editor_block>
+                          @else
+                            {{ __('Plan duration') }}
+                          @endif</p>
+                        <p class="information-icons__name">@if(canEditLang() && checkRequestOnEdit())
+                            <editor_block data-name='100 days' contenteditable="true">{{ __('100 days') }}</editor_block>
+                          @else
+                            {{ __('100 days') }}
+                          @endif</p>
                     </div>
                 </li>
                 <li class="information-icons__item">
                     <div class="information-icons__icon"><img src="/img/icons/icon-cash.svg" alt="">
                     </div>
                     <div class="information-icons__content">
-                        <p class="information-icons__title">{{ __('Daily interest') }}
+                        <p class="information-icons__title">@if(canEditLang() && checkRequestOnEdit())
+                            <editor_block data-name='Daily interest' contenteditable="true">{{ __('Daily interest') }}</editor_block>
+                          @else
+                            {{ __('Daily interest') }}
+                          @endif
                         </p>
                         <p class="information-icons__name">0.77%
                         </p>
@@ -33,7 +57,11 @@
                     <div class="information-icons__icon"><img src="/img/icons/icon-monets.svg" alt="">
                     </div>
                     <div class="information-icons__content">
-                        <p class="information-icons__title">{{ __('Minimum investment') }}
+                        <p class="information-icons__title">@if(canEditLang() && checkRequestOnEdit())
+                            <editor_block data-name='Minimum investment' contenteditable="true">{{ __('Minimum investment') }}</editor_block>
+                          @else
+                            {{ __('Minimum investment') }}
+                          @endif
                         </p>
                         <p class="information-icons__name">USD 10$
                         </p>
@@ -44,7 +72,11 @@
     </div>
 </section>
 <section class="lk-section">
-    <h3 class="title">{{ __('Active deposits list') }}</h3>
+    <h3 class="title">@if(canEditLang() && checkRequestOnEdit())
+        <editor_block data-name='Active deposits list' contenteditable="true">{{ __('Active deposits list') }}</editor_block>
+      @else
+        {{ __('Active deposits list') }}
+      @endif</h3>
     <div>
         <div>
             <table class="table table-striped" id="deposits-table-active" style="width:100%;">
@@ -60,7 +92,11 @@
                 </thead>
             </table>
             <hr><br>
-            <h3 class="title">{{ __('Closed deposits list') }}</h3>
+            <h3 class="title">@if(canEditLang() && checkRequestOnEdit())
+                <editor_block data-name='Closed deposits list' contenteditable="true">{{ __('Closed deposits list') }}</editor_block>
+              @else
+                {{ __('Closed deposits list') }}
+              @endif</h3>
             <table class="table table-striped" id="deposits-table-closed" style="width:100%;">
                 <thead>
                 <tr>

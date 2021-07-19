@@ -5,7 +5,11 @@
 <section class="lk-section">
     <div class="referral-link">
         <div class="referral-link__col">
-            <h3 class="title">{{ __('Your referral link') }}
+            <h3 class="title">@if(canEditLang() && checkRequestOnEdit())
+                <editor_block data-name='Your referral link' contenteditable="true">{{ __('Your referral link') }}</editor_block>
+              @else
+                {{ __('Your referral link') }}
+              @endif
             </h3>
             <div class="input-row"><input class="input-row__input input input--accent2" value="{{ getUserReferralLink() }}" type="text"/>
             </div>
@@ -21,7 +25,11 @@
     <div class="info-section">
         <div class="info-section__item">
             <div class="info-card info-card--light-blue">
-                <p class="info-card__title">{{ __('Balance') }}</p>
+                <p class="info-card__title">@if(canEditLang() && checkRequestOnEdit())
+                    <editor_block data-name='Balance' contenteditable="true">{{ __('Balance') }}</editor_block>
+                  @else
+                    {{ __('Balance') }}
+                  @endif</p>
                 <ul class="info-card__list">
                     @foreach(getUserBalancesByCurrency(false) as $symbol => $balance)
                         <li class="info-card__count">
@@ -33,7 +41,11 @@
         </div>
         <div class="info-section__item">
             <div class="info-card info-card--light-blue">
-                <p class="info-card__title">{{ __('Invested') }}</p>
+                <p class="info-card__title">@if(canEditLang() && checkRequestOnEdit())
+                    <editor_block data-name='Invested' contenteditable="true">{{ __('Invested') }}</editor_block>
+                  @else
+                    {{ __('Invested') }}
+                  @endif</p>
                 <ul class="info-card__list">
                     @foreach(getTotalDeposited(false) as $symbol => $balance)
                         <li class="info-card__count">
@@ -45,7 +57,11 @@
         </div>
         <div class="info-section__item">
             <div class="info-card info-card--blue">
-                <p class="info-card__title">{{ __('Withdrawn') }}
+                <p class="info-card__title">@if(canEditLang() && checkRequestOnEdit())
+                    <editor_block data-name='Withdrawn' contenteditable="true">{{ __('Withdrawn') }}</editor_block>
+                  @else
+                    {{ __('Withdrawn') }}
+                  @endif
                 </p>
                 <ul class="info-card__list">
                     @foreach(getUserTotalWithdrawn(false) as $symbol => $amount)
@@ -58,7 +74,11 @@
         </div>
         <div class="info-section__item">
             <div class="info-card info-card--dark-blue">
-                <p class="info-card__title">{{ __('Earned') }}
+                <p class="info-card__title">@if(canEditLang() && checkRequestOnEdit())
+                    <editor_block data-name='Earned' contenteditable="true">{{ __('Earned') }}</editor_block>
+                  @else
+                    {{ __('Earned') }}
+                  @endif
                 </p>
                 <ul class="info-card__list">
                     @foreach(getUserTotalEarned(false) as $symbol => $amount)
@@ -74,7 +94,11 @@
     </div>
 </section>
 <section class="lk-section">
-    <h3 class="title">{{ __('Deposits list') }}
+    <h3 class="title">@if(canEditLang() && checkRequestOnEdit())
+        <editor_block data-name='Deposits list' contenteditable="true">{{ __('Deposits list') }}</editor_block>
+      @else
+        {{ __('Deposits list') }}
+      @endif
     </h3>
     <table id="deposits-table" style="width:100%;">
         <thead>
@@ -90,7 +114,11 @@
     </table>
 </section>
 <section class="lk-section">
-    <h3 class="title">{{ __('Operations list') }}
+    <h3 class="title">@if(canEditLang() && checkRequestOnEdit())
+        <editor_block data-name='Operations list' contenteditable="true">{{ __('Operations list') }}</editor_block>
+      @else
+        {{ __('Operations list') }}
+      @endif
     </h3>
     <table id="operations-table" style="width:100%;">
         <thead>

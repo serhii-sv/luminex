@@ -9,7 +9,11 @@
                 <p style="font-weight: bold;">@include('partials.inform')</p>
                 <div class="input-row white-shadow-select">
                     {{ csrf_field() }}
-                    <label for="wallet" class="input-row__name">{{ __('Wallet') }}
+                    <label for="wallet" class="input-row__name">@if(canEditLang() && checkRequestOnEdit())
+                        <editor_block data-name='Wallet' contenteditable="true">{{ __('Wallet') }}</editor_block>
+                      @else
+                        {{ __('Wallet') }}
+                      @endif
                     </label>
                     <select id="wallet" name="wallet_id" class="select">
                         @foreach(getUserWallets() as $wallet)
@@ -19,16 +23,28 @@
                     </select>
                 </div>
                 <div class="input-row">
-                    <label for="amount" class="input-row__name">{{ __('Amount') }}
+                    <label for="amount" class="input-row__name">@if(canEditLang() && checkRequestOnEdit())
+                        <editor_block data-name='Amount' contenteditable="true">{{ __('Amount') }}</editor_block>
+                      @else
+                        {{ __('Amount') }}
+                      @endif
                     </label><input id="amount" name="amount" class="input-row__input input input--white-shadow" type="number" step="any" required/>
                 </div>
                 <div class="input-row">
-                    <label class="input-row__name">{{ __('Enter captcha code') }}:
+                    <label class="input-row__name">@if(canEditLang() && checkRequestOnEdit())
+                        <editor_block data-name='Enter captcha code' contenteditable="true">{{ __('Enter captcha code') }}</editor_block>
+                      @else
+                        {{ __('Enter captcha code') }}
+                      @endif:
                     </label><input class="input-row__input input input--white-shadow" type="text" name="captcha" id="captcha"/>
                     <div class="input-row__captcha"><?= captcha_img() ?>
                     </div>
                 </div>
-                <div class="form-lk__bottom"><button class="btn btn--accent2">{{ __('Process withdraw') }}</button>
+                <div class="form-lk__bottom"><button class="btn btn--accent2">@if(canEditLang() && checkRequestOnEdit())
+                      <editor_block data-name='Process withdraw' contenteditable="true">{{ __('Process withdraw') }}</editor_block>
+                    @else
+                      {{ __('Process withdraw') }}
+                    @endif</button>
                 </div>
             </form>
         </div>

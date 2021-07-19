@@ -4,7 +4,11 @@
 <div class="lk__content">
     <div class="referral-link">
         <div class="referral-link__col">
-            <h3 class="title">{{ __('Your referral link') }}
+            <h3 class="title">@if(canEditLang() && checkRequestOnEdit())
+                <editor_block data-name='Your referral link' contenteditable="true">{{ __('Your referral link') }}</editor_block>
+              @else
+                {{ __('Your referral link') }}
+              @endif
             </h3>
             <div class="input-row"><input class="input-row__input input input--accent2" value="{{ getUserReferralLink() }}" type="text"/>
             </div>
@@ -204,7 +208,11 @@
         </script>
     @else
         <div class="alert alert-danger"
-             role="alert">{{ __('Referrals tree visualization can not be created. You don\'t have any referrals.') }}</div>
+             role="alert">@if(canEditLang() && checkRequestOnEdit())
+            <editor_block data-name="Referrals tree visualization can not be created. You don't have any referrals." contenteditable="true">{{ __("Referrals tree visualization can not be created. You don't have any referrals.") }}</editor_block>
+          @else
+            {{ __("Referrals tree visualization can not be created. You don't have any referrals.") }}
+          @endif</div>
     @endif
 </div>
 <div>

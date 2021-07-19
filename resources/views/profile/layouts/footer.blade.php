@@ -8,12 +8,23 @@
                 <a class="main-line__link" href="#call" data-fancybox="" data-modal="true">Обратный звонок</a>
             </div> -->
             <div class="main-line__buttons">
-                <a class="btn btn--white main-line__btn" href="{{ route('customer.main') }}/agreement">{{ __('User agreement') }}</a>
+                <a class="btn btn--white main-line__btn" href="{{ route('customer.main') }}/agreement" @if(canEditLang() && checkRequestOnEdit()) onclick="event.preventDefault()" @endif>@if(canEditLang() && checkRequestOnEdit())
+                    <editor_block data-name='User agreement' contenteditable="true">{{ __('User agreement') }}</editor_block>
+                  @else
+                    {{ __('User agreement') }}
+                  @endif</a>
                 @if(Auth::user()->isImpersonated())
-                    <a class="btn btn--accent2 main-line__btn" href="{{ route('admin.impersonate.leave') }}">{{ __('Return to my account') }}</a>
+                    <a class="btn btn--accent2 main-line__btn" href="{{ route('admin.impersonate.leave') }}" @if(canEditLang() && checkRequestOnEdit()) onclick="event.preventDefault()" @endif>@if(canEditLang() && checkRequestOnEdit())
+                        <editor_block data-name='Return to my account' contenteditable="true">{{ __('Return to my account') }}</editor_block>
+                      @else
+                        {{ __('Return to my account') }}
+                      @endif</a>
                 @else
-                    <a class="btn btn--accent2 main-line__btn" href="{{ route('logout') }}"
-                       onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Log out') }}</a>
+                    <a class="btn btn--accent2 main-line__btn" href="{{ route('logout') }}" @if(canEditLang() && checkRequestOnEdit()) onclick="event.preventDefault()" @else onclick="event.preventDefault(); document.getElementById('logout-form').submit();" @endif>@if(canEditLang() && checkRequestOnEdit())
+                        <editor_block data-name='Log out' contenteditable="true">{{ __('Log out') }}</editor_block>
+                      @else
+                        {{ __('Log out') }}
+                      @endif</a>
                 @endif
             </div>
         </div>
