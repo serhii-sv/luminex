@@ -156,7 +156,7 @@
                 <div class="container">
                     <ul class="levels-list">
                         <li class="levels-list__item">
-                            <p class="levels-list__count">7<sup>%</sup>
+                            <p class="levels-list__count">13<sup>%</sup>
                             </p>
                             <p class="levels-list__desc">1<sup>@if(canEditLang() && checkRequestOnEdit())
                                   <editor_block data-name='st' contenteditable="true">{{ __('st') }}</editor_block>
