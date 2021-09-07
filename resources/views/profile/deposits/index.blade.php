@@ -10,7 +10,7 @@
       @endif</h4>
     <div class="plan-item plan-item--line">
       <div class="plan-item__left">
-        <p class="plan-item__name">0.77% @if(canEditLang() && checkRequestOnEdit())
+        <p class="plan-item__name">1.25% @if(canEditLang() && checkRequestOnEdit())
             <editor_block data-name='per day' contenteditable="true">{{ __('per day') }}</editor_block>
           @else
             {{ __('per day') }}
@@ -49,7 +49,7 @@
                   {{ __('Daily interest') }}
                 @endif
               </p>
-              <p class="information-icons__name">0.77%
+              <p class="information-icons__name">1.25%
               </p>
             </div>
           </li>
