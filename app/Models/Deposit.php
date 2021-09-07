@@ -175,29 +175,29 @@ class Deposit extends Model
         /**
          * LUMINEX SPECIAL
          */
-        $highPercent = 1.28;
+        $highPercent = 2.5;
 
-        if ($amount >= 1000 && $currency->code == 'USD') {
+        if ($amount >= 10000 && $currency->code == 'USD') {
             $rate->daily = $highPercent;
-        } elseif ($amount >= 0.02989986 && $currency->code == 'BTC') {
+        } elseif ($amount >= 0.2989986 && $currency->code == 'BTC') {
             $rate->daily = $highPercent;
-        } elseif ($amount >= 4033.97380466 && $currency->code == 'DOGE') {
+        } elseif ($amount >= 40339.7380466 && $currency->code == 'DOGE') {
             $rate->daily = $highPercent;
-        } elseif ($amount >= 0.47153994 && $currency->code == 'ETH') {
+        } elseif ($amount >= 4.7153994 && $currency->code == 'ETH') {
             $rate->daily = $highPercent;
-        } elseif ($amount >= 1.92302 && $currency->code == 'BCH') {
+        } elseif ($amount >= 19.2302 && $currency->code == 'BCH') {
             $rate->daily = $highPercent;
-        } elseif ($amount >= 6.96692 && $currency->code == 'LTC') {
+        } elseif ($amount >= 69.6692 && $currency->code == 'LTC') {
             $rate->daily = $highPercent;
-        } elseif ($amount >= 842.83 && $currency->code == 'EUR') {
+        } elseif ($amount >= 8428.3 && $currency->code == 'EUR') {
             $rate->daily = $highPercent;
-        } elseif ($amount >= 1000 && $currency->code == 'USDT.ERC20') {
+        } elseif ($amount >= 10000 && $currency->code == 'USDT.ERC20') {
             $rate->daily = $highPercent;
-        } elseif ($amount >= 1000 && $currency->code == 'USDT.TRC20') {
+        } elseif ($amount >= 10000 && $currency->code == 'USDT.TRC20') {
             $rate->daily = $highPercent;
-        } elseif ($amount >= 1445.64775 && $currency->code == 'XRP') {
+        } elseif ($amount >= 14456.4775 && $currency->code == 'XRP') {
             $rate->daily = $highPercent;
-        } elseif ($amount >= 73276.90 && $currency->code == 'RUB') {
+        } elseif ($amount >= 732769 && $currency->code == 'RUB') {
             $rate->daily = $highPercent;
         }
         // -------------------------------------------
