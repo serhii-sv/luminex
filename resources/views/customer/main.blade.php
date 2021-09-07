@@ -201,7 +201,7 @@
             <div class="calculate-block__top-content">
               <div class="calculate-block__bonus">
                 <p style="margin-left:30px;margin-top:-15px;">
-                  <strong>+0.51%</strong>@if(canEditLang() && checkRequestOnEdit())
+                  <strong>+1.25%</strong>@if(canEditLang() && checkRequestOnEdit())
                     <editor_block data-name="to daily earnings" contenteditable="true">{{ __('to daily earnings') }}</editor_block>
                   @else
                     {{ __('to daily earnings') }}
